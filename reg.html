@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        @media only screen and (max-width: 600px) {
+            #registrationForm {
+                width: 80%;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            #registrationForm {
+                width: 90%;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("bg5.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #registrationForm {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: transparent;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(68, 44, 44, 0.1);
+            border: 3px solid #ccc;
+        }
+
+        #registrationForm:hover {
+            backdrop-filter: blur(20px);
+            background-image: url("sample (1).jpg");
+        }
+
+        h2 {
+            color: #f2e9f8;
+            text-align: center;
+            margin-bottom: 20px;
+            text-decoration: underline;
+            text-decoration-color: #fa1212;
+            font-style: oblique;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #322869;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: underline;
+            color: #ffffff;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #be6464;
+        }
+
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            margin-top: auto;
+        }
+
+        .icon {
+            display: inline-block;
+            margin: 0 auto;
+            position: relative;
+            top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form id="registrationForm" onsubmit="return validateForm()" action="2.1login page.html">
+        <h2>Registration Form</h2>
+        <label for="firstName">First Name: <img src="icon name.png" class="icon" width="25" height="25"></label>
+        <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+        
+        <label for="lastName">Last Name: <img src="home.png" class="icon" width="25" height="25"></label>
+        <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+        
+        <label for="email">Email: <img src="icon g mail.png" class="icon" width="25" height="25"></label>
+        <input type="email" id="email" name="email" placeholder="@gmail.com" required>
+        
+        <label for="gender">Gender: <img src="icon gender.png" class="icon" width="25" height="25"></label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="loginPassword" required>
+        
+        <label for="phoneNumber">Phone Number: <img src="icon phone.png" class="icon" width="25" height="25"></label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your mobile number" required pattern="[0-9]{10}" maxlength="10">
+        <br><br>
+        <input type="submit" value="Register">
+    </form>
+
+    <script>
+        function validateForm() {
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('loginPassword').value;
+            var letterOnlyRegex = /^[A-Za-z]+$/;
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+            if (!firstName.match(letterOnlyRegex)) {
+                alert('First name must contain letters only and no special characters are allowed.');
+                return false;
+            }
+
+            if (!lastName.match(letterOnlyRegex)) {
+                alert('Last name must contain letters only and no special characters are allowed.');
+                return false;
+            }
+
+            if (!email.match(emailRegex)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+
+            if (!validatePassword(password)) {
+                alert('Password must be at least 8 characters long.');
+                return false;
+            }
+
+            return true;
+        }
+
+        function validatePassword(password) {
+            return password.length >= 8;
+        }
+    </script>
+</body>
+</html>

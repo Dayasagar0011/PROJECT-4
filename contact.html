@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DAYA Photography</title>
+    <style>
+        @media only screen and (max-width: 600px) {
+            .container {
+                max-width: 90%;
+                padding: 20px;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            .container {
+                padding: 15px;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("bg of contact.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: inline;
+            max-width: 600px;
+            width: 100%;
+            margin: 50px auto;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .contact-info, .contact-form, .social-media {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto 0;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #555;
+        }
+
+        .social-media a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><br><br><br><br>Contact Us</h1>
+        <div class="contact-info">
+            <h2>Address:</h2>
+            <p>DAYA Photography</p>
+            <p>Broadway street</p>
+            <p>Brooklyn, New York, 11211</p>
+            <p>United States</p>
+            <p>Phone: +91 7993687019</p>
+        </div>
+        <div class="social-media">
+            <h2>Connect With Us:</h2>
+            <a href="https://www.instagram.com/daya_sagar0011?igsh=MWJpNDJuczZ1ZjhoNA==">
+                <img src="icon instagram.png" width="20px" height="20px" style="vertical-align: middle;"> Instagram
+            </a>
+            <a href="https://wa.me/qr/ZV4LBBWBO5ZNK1">
+                <img src="icon whatsapp.png" width="20px" height="20px" style="vertical-align: middle;"> WhatsApp
+            </a>
+        </div>
+        <div class="contact-form">
+            <h2>Send us a message:</h2>
+            <form action="message.html" method="post" onsubmit="return validateForm()">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var namePattern = /^[a-zA-Z\s]+$/;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!name.match(namePattern)) {
+                alert('Please enter a valid name (letters only, no special characters or numbers)');
+                return false;
+            }
+
+            if (!email.match(emailPattern)) {
+                alert('Please enter a valid email address');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
